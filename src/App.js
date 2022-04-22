@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          My First Commit With Automatic Deplyment
         </a>
       </header>
     </div>
