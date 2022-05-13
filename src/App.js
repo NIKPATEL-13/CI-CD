@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Child from './Child';
+import { useState } from 'react';
 
 function App() {
+  const [counter] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,7 @@ function App() {
           My First Commit With Automatic Deplyment
         </a>
       </header>
+      <Child counter={counter} />
     </div>
   );
 }
