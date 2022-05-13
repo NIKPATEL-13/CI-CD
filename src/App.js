@@ -19,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          My First Commit With Automatic Deplyment
+          This is my new code with CI-CD
         </a>
       </header>
       <Child counter={counter} />
