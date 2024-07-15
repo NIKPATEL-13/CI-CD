@@ -39,3 +39,7 @@ jobs:
         timeout-minutes: 10
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+
+      - name: Generate main Build
+        if: ${{github.ref == 'refs/heads/main'}}
+        run: yarn run build 
