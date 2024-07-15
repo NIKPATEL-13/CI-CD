@@ -19,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This is my new code with CI-CD
+          This is my new code with CI-CD - new sonar
         </a>
       </header>
       <Child counter={counter} />
