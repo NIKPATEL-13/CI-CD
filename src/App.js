@@ -21,8 +21,8 @@ function App() {
         >
           This is my new code with CI-CD - new sonar cloud
         </a>
-        <span>{counter}</span>
-        <input type="button" value={"Increment"} onClick={() => setCounter(counter + 1)} />
+        <span data-testid='increment-counter'>{counter}</span>
+        <input type="button" data-testid='increment-btn' value={"Increment"} onClick={() => setCounter(counter + 1)} />
       </header>
       <Child counter={counter} />
     </div>
