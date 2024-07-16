@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Child from './Child';
 import { useState } from 'react';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <span data-testid='increment-counter'>{counter}</span>
         <input type="button" data-testid='increment-btn' value={"Increment"} onClick={() => setCounter(counter + 1)} />
       </header>
-      <Child counter={counter} />
     </div>
   );
 }
