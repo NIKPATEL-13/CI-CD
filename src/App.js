@@ -4,7 +4,7 @@ import Child from './Child';
 import { useState } from 'react';
 
 function App() {
-  const [counter, setCountereee] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   return (
     <div className="App">
@@ -22,7 +22,7 @@ function App() {
           This is my new code with CI-CD - new sonar cloud
         </a>
         <span>{counter}</span>
-        <input type="button" value={"Increment"} onClick={() => setCountereee(counter + 1)} />
+        <input type="button" value={"Increment"} onClick={() => setCounter(counter + 1)} />
       </header>
       <Child counter={counter} />
     </div>
