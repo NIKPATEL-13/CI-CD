@@ -1,5 +1,5 @@
-import ReactLogo from 'react.svg'
-import ViteLogo from 'vite.svg'
+import ReactLogo from './react.svg'
+import ViteLogo from './vite.svg'
 
 export default {
   Logos: {
