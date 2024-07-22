@@ -29,15 +29,6 @@ const PdfPrinter = () => {
 
   };
 
-  // Example usage (replace with your actual Blob or URL as needed)
-  // Uncomment and use as needed in your component
-  /*
-  const exampleBlob = new Blob(['Example PDF content'], { type: 'application/pdf' });
-  printPdfBlob(exampleBlob);
-
-  const examplePdfUrl = 'https://example.com/sample.pdf';
-  printPdfUrl(examplePdfUrl);
-  */
   const exampleBlob = new Blob(['Example PDF content'], { type: 'application/pdf' });
   const examplePdfUrl = 'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
 
@@ -49,7 +40,7 @@ const PdfPrinter = () => {
           display: 'none',
           width: "100px",
           height: "100px"
-        }} // Hide the iframe
+        }} // Note: Hide the iframe
         title="PDF Printer"
       ></iframe>
 
