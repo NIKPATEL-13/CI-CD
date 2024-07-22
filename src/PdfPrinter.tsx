@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { IframeHTMLAttributes, useRef } from 'react';
 
 const PdfPrinter = () => {
-  const iframeRef = useRef(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const printPdfBlob = (pdfBlob) => {
+  const printPdfBlob = (pdfBlob: Blob) => {
     const pdfUrl = URL.createObjectURL(pdfBlob);
     console.log('🚀 ~ printPdfBlob ~ pdfUrl:', pdfUrl);
     printPdfUrl(pdfUrl);
@@ -12,21 +12,21 @@ const PdfPrinter = () => {
     // Consider revoking the URL after printing is done if possible.
   };
 
-  const printPdfUrl = (pdfUrl) => {
+  const printPdfUrl = (pdfUrl: string) => {
     console.log('🚀 ~ printPdfUrl ~ iframeRef.current:', iframeRef.current);
-    if (!iframeRef.current) {
-      return;
+    if (iframeRef.current) {
+      iframeRef.current.src = pdfUrl;
+      iframeRef.current.onload = () => {
+        try {
+          // This will attempt to call the print method on the iframe document.
+          iframeRef.current?.contentWindow?.print();
+        } catch (error) {
+          console.error('Error printing the PDF:', error);
+        }
+      };
     }
 
-    iframeRef.current.src = pdfUrl;
-    iframeRef.current.onload = () => {
-      try {
-        // This will attempt to call the print method on the iframe document.
-        iframeRef.current.contentWindow?.print();
-      } catch (error) {
-        console.error('Error printing the PDF:', error);
-      }
-    };
+
   };
 
   // Example usage (replace with your actual Blob or URL as needed)
@@ -39,21 +39,21 @@ const PdfPrinter = () => {
   printPdfUrl(examplePdfUrl);
   */
   const examplePdfUrl = 'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
-  
+
   return (
     <>
-    <iframe
-      ref={iframeRef}
-      style={{ 
-        display: 'none',
-        width: "100px",
-        height: "100px"
-      }} // Hide the iframe
-      title="PDF Printer"
-    ></iframe>
+      <iframe
+        ref={iframeRef}
+        style={{
+          display: 'none',
+          width: "100px",
+          height: "100px"
+        }} // Hide the iframe
+        title="PDF Printer"
+      ></iframe>
 
-<input type='button' onClick={() => printPdfUrl(examplePdfUrl)} value='Print PDF' />
-</>
+      <input type='button' onClick={() => printPdfUrl(examplePdfUrl)} value='Print PDF' />
+    </>
   );
 };
 
