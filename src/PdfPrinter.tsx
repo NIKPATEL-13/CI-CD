@@ -1,4 +1,4 @@
-import React, { IframeHTMLAttributes, useRef } from 'react';
+import { useRef } from 'react';
 
 const PdfPrinter = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -38,6 +38,7 @@ const PdfPrinter = () => {
   const examplePdfUrl = 'https://example.com/sample.pdf';
   printPdfUrl(examplePdfUrl);
   */
+  const exampleBlob = new Blob(['Example PDF content'], { type: 'application/pdf' });
   const examplePdfUrl = 'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
 
   return (
@@ -52,7 +53,8 @@ const PdfPrinter = () => {
         title="PDF Printer"
       ></iframe>
 
-      <input type='button' onClick={() => printPdfUrl(examplePdfUrl)} value='Print PDF' />
+      <input type='button' onClick={() => printPdfUrl(examplePdfUrl)} value='Print PDF with URL' />
+      <input type='button' onClick={() => printPdfBlob(exampleBlob)} value='Print PDF with Blob' />
     </>
   );
 };
