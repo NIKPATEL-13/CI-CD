@@ -1,26 +1,26 @@
 import { expect, test } from 'vitest';
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
-// import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event'
+
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
 
-// test('render app', async () => {
-//   render(<App />)
-//   const Headeing = await screen.findByText(/Vite + React/i)
-//   console.log(Headeing);
+test('render app', () => {
+  render(<App />)
+  const Heading = screen.getByRole("heading")
+  expect(Heading).toBeInTheDocument()
+  expect(Heading).toHaveTextContent("Vite + React")
+})
 
-//   expect(Headeing).toBeInTheDocument()
-// })
-
-// test('increment', async() => {
-//   render(<App />);
-//   const incromentButton =  screen.getByTestId("increment-btn");
-//   expect(incromentButton).toBeInTheDocument();
-//   userEvent.click(incromentButton)
-//   const counterVal = screen.getByTestId("increment-counter");
-//   expect(counterVal).toBeInTheDocument();
-//   expect(counterVal).toHaveTextContent(1);
-// });
+test('increment', () => {
+  render(<App />);
+  const incromentButton = screen.getByTestId("increment-btn");
+  expect(incromentButton).toBeInTheDocument();
+  screen.debug(incromentButton)
+  userEvent.click(incromentButton)
+  const counterVal = screen.getByTestId("increment-counter");
+  expect(counterVal).toHaveTextContent('0');
+});
 
 function sum(a: number, b: number) {
   return a + b
