@@ -7,9 +7,9 @@ import App from './App';
 
 test('render app', () => {
   render(<App />)
-  const Heading = screen.getByRole("heading")
-  expect(Heading).toBeInTheDocument()
-  expect(Heading).toHaveTextContent("Vite + React")
+  const Headings = screen.getAllByRole("heading")
+  expect(Headings[0]).toBeInTheDocument()
+  expect(Headings[0]).toHaveTextContent("Vite + React")
 })
 
 test('increment', () => {
