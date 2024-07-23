@@ -7,10 +7,10 @@ export default mergeConfig(
       globals: true,
       environment: 'jsdom',
       css: true,
+      setupFiles: ['./src/setupTests.ts'],
       coverage: {
         reporter: ['text', 'json', 'html','lcov'],
         include: ['src/**/*'],
-        setupFiles: ['./src/setupTests.ts'],
       }
     }
   })
